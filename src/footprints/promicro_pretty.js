@@ -1189,25 +1189,25 @@ module.exports = {
       (primitives
         (gr_line (start 0 0) (end 0 -2.064) (width 0.25))
       ))
+
+    ${'' /* tiny middle holes */ }
     (pad 23 smd custom (at -11.43 2.762 ${p.rot + 180}) (size 0.25 0.25) (layers B.Cu) ${p.net.P0.str}
       (zone_connect 0)
       (options (clearance outline) (anchor circle))
       (primitives
         (gr_line (start 0 0) (end -0.766 0.766) (width 0.25))
-        (gr_line (start -0.766 0.766) (end -0.766 4.822) (width 0.25))
-        (gr_line (start -0.766 4.822) (end 0 5.588) (width 0.25))
+        (gr_line (start -0.766 0.766) (end -0.766 6.822) (width 0.25))
+        (gr_line (start -0.766 6.822) (end 0 7.588) (width 0.25))
       ))
     (pad 2 smd custom (at -11.43 -2.762 ${p.rot}) (size 0.25 0.25) (layers B.Cu) ${p.net.GND.str}
       (zone_connect 0)
       (options (clearance outline) (anchor circle))
       (primitives
         (gr_line (start 0 0) (end -0.766 0.766) (width 0.25))
-        (gr_line (start -0.766 0.766) (end -0.766 4.822) (width 0.25))
-        (gr_line (start -0.766 4.822) (end 0 5.588) (width 0.25))
+        (gr_line (start -0.766 0.766) (end -0.766 6.822) (width 0.25))
+        (gr_line (start -0.766 6.822) (end 0 7.588) (width 0.25))
       ))
 
-
-    ${'' /* tiny middle holes */ }
     (pad 2 thru_hole circle (at -11.43 -2.762 ${p.rot + 180}) (size 0.8 0.8) (drill 0.4) (layers *.Cu) ${p.net.GND.str})
     (pad 23 thru_hole circle (at -11.43 2.762 ${p.rot + 180}) (size 0.8 0.8) (drill 0.4) (layers *.Cu) ${p.net.P0.str})
     (pad 24 thru_hole circle (at -13.97 2.762 ${p.rot + 180}) (size 0.8 0.8) (drill 0.4) (layers *.Cu) ${p.net.P1.str})
