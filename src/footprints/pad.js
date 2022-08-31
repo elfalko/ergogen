@@ -8,7 +8,7 @@ module.exports = {
         height: 1,
         front: true,
         back: true,
-        text: '',
+        text: undefined,
         align: 'left',
         mirrored: '=mirrored'
     },
@@ -18,18 +18,30 @@ module.exports = {
             if (!toggle) return ''
             let x = 0, y = 0
             const mirror = side == 'B' ? '(justify mirror)' : ''
-            const plus = (p.param.text.length + 1) * 0.5
             let align = p.param.align
             if (p.param.mirrored === true) {
                 if (align == 'left') align = 'right'
                 else if (align == 'right') align = 'left'
             }
+
+            let text = ''
+            let tl = 0
+            if (p.param.text){
+              tl = p.param.text.length
+            }
+            let plus = (tl + 1) * 0.5
             if (align == 'left') x -= p.param.width / 2 + plus
             if (align == 'right') x += p.param.width / 2 + plus
             if (align == 'up') y += p.param.height / 2 + plus
             if (align == 'down') y -= p.param.height / 2 + plus
-            const text = `(fp_text user ${p.param.text} (at ${x} ${y} ${p.rot}) (layer ${side}.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ${mirror}))`
-            return `(pad 1 smd rect (at 0 0 ${p.rot}) (size ${p.param.width} ${p.param.height}) (layers ${side}.Cu ${side}.Paste ${side}.Mask) ${p.net.net.str})\n${text}`
+            if (p.param.text){
+              text = `(fp_text user ${p.param.text} (at ${x} ${y} ${p.rot}) (layer ${side}.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ${mirror}))`
+            }
+
+            return `
+              (pad 1 smd rect (at 0 0 ${p.rot}) (size ${p.param.width} ${p.param.height}) (layers ${side}.Cu ${side}.Paste ${side}.Mask) ${p.net.net.str})
+              ${text}
+            `
         }
 
         return `
