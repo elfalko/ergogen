@@ -8,7 +8,7 @@ module.exports = {
     },
     params: {
       d: 0.3,
-      w: 0.2
+      w: 0.6
     },
     body: p => `
       (module VIA-${p.param.d}mm (layer F.Cu) (tedit 591DBFB0)
@@ -18,7 +18,7 @@ module.exports = {
       (fp_text value VIA-${p.param.d}mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
 
       ${'' /* via */}
-      (pad 1 thru_hole circle (at 0 0) (size ${p.param.d+2*p.param.w} ${p.param.d+2*p.param.w}) (drill ${p.param.d}) (layers *.Cu) (zone_connect 2) ${p.net.net.str})
+      (pad 1 thru_hole circle (at 0 0) (size ${p.param.w} ${p.param.w}) (drill ${p.param.d}) (layers *.Cu) (zone_connect 2) ${p.net.net.str})
       )
     `
 }

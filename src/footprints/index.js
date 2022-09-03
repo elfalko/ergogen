@@ -18,6 +18,8 @@ module.exports = {
     rotary: require('./rotary'),
     scrollwheel: require('./scrollwheel'),
     slider: require('./slider'),
+    hawklogo: require('./hawklogo'),
+    text: require('./text'),
     trrs: require('./trrs'),
     trace: require('./trace'),
     usbc: require('./usbc'),
